@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restobot</title>
+    <style>
+       body {
+        background-image: url('https://assets.architecturaldigest.in/photos/63733ec2a2dd6ea6560eb6da/16:9/pass/Ditas%20Interior%20Image%20-%201%20(8).png');
+        background-size: cover;}
+    </style>
+</head>
+<body>
+<div class="container">
+<H1 style="color:white">Welcome to My 1st application. For the Anime Quotes click the below button.</H1>
+<br>
+    <center>
+<form action='/testApi' method="post">
+    <button class="btn btn-primary w-100" type="submit">Click here to get Quote</button>
+</form><br></center>
+<h1 style="color:white">The quote for the day: {{quote}}</h1>
+    </div>
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "ce8f2e31-8cbe-41d3-aff1-3ff39f37f3f8", // The ID of this integration.
+    region: "us-south", // The region your integration is hosted in.
+    serviceInstanceID: "98b7f195-4042-4f51-b00d-b82d132d8c69", // The ID of your service instance.
+    onLoad: function(instance) { instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+</script>
+</body>
+</html>

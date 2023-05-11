@@ -1,0 +1,20 @@
+ apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   name: quotes
+ spec:
+   replicas: 5
+   selector:
+     matchLabels:
+       app: quotes
+   template:
+     metadata:
+       labels:
+         app: quotes
+     spec:
+       containers:
+       - name: quotes
+         image: us.icr.io/quotes/quote
+         imagePullPolicy: Always
+         ports:
+         - containerPort: 5000
